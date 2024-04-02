@@ -12,7 +12,7 @@ module.exports = {
       {
         name: 'prefix',
         message: 'specify your tailwind prefix',
-        default: `${this.outFolder.split("-")[0].slice(0,1)}${this.outFolder.split("-")[1].slice(0,1)}-`,
+        default: `${this.outFolder?.split("-")[0]?.slice(0,1) || ""}${this.outFolder?.split("-")[1]?.slice(0,1) || ""}-`,
         filter: val => val.toLowerCase()
       },
       // {

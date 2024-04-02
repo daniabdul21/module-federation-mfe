@@ -1,25 +1,51 @@
 {
-  "name": "sao-qcash-ui-base-template",
+  "name": "qcash-ui-base-template",
   "version": "0.0.0",
-  "description": "template fe module federation",
-  "repository": {
-    "url": "daniabdul21/sao-qcash-ui-base-template",
-    "type": "git"
-  },
-  "author": "daniabdul21 <dani.abud21@gmail.com> (github.com/daniabdul21)",
-  "license": "MIT",
+  "description": "template MFE",
+  "main": "index.js",
+  "bin": "cli.js",
   "files": [
-    "saofile.js",
-    "template"
+    "index.js",
+    "cli.js"
   ],
   "scripts": {
-    "test": "ava"
+    "test:cov": "npm run lint && jest --coverage",
+    "test": "npm run lint && jest",
+    "lint": "standard"
   },
+  "repository": {
+    "url": "hamdani abdul aziz/qcash-ui-base-template",
+    "type": "git"
+  },
+  "author": "hamdani abdul aziz<hamdani@ordent.co>",
+  "license": "MIT",
   "dependencies": {
-    "superb": "^1.3.0"
+    "cac": "^6.0.0",
+    "superb": "^4.0.0"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "sao": "^1.0.0"
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.15.2",
+    "standard": "^12.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
